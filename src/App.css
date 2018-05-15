@@ -1,3 +1,24 @@
 .dib {
 	display: inline-block;
 }
+
+.table {
+	padding-left: 7%;
+	padding-right: 7%;
+	width: 100%;
+	line-height: 1.45;
+	text-align: left;
+}
+
+.table thead {
+	line-height: 1.7;
+	font-size: 20px;
+}
+
+.table td {
+	padding-left: 7px;
+}
+
+.table th.sortable {
+	padding-left: 7px;
+}

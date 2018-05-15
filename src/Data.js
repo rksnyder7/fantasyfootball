@@ -12,54 +12,68 @@ export const wrRanks = [{'name': 'Antonio Brown', 'FP': 1, 'ES': 1, 'FC': 1, 'AV
 
 export const rowStyle = (row, rowIndex) => {
   const style = {};
-  if (row.id > 3) {
-    style.backgroundColor = '#c8e6c9';
+  if (rowIndex%2===0) {
+  	style.backgroundColor = '#8F979E'
   } else {
-    style.backgroundColor = '#00BFFF';
+	  style.backgroundColor = 'white';
   }
-
-  if (rowIndex > 2) {
-    style.fontWeight = 'bold';
-    style.color = 'white';
-  }
+  style.color = 'black';
+  style.fontWeight = 'bold';
 
   return style;
 };
 
+
+export const defaultSorted = [{
+  dataField: 'AVG', 
+  order: 'asc' 
+}];
+
+const headStyle = {
+	backgroundColor: 'grey',
+	fontWeight: 800,
+	width: '10%'
+}
+
 export const columns = [{
   dataField: 'name',
   text: 'Player',
-  sort: true
+  sort: true,
+  headerStyle: headStyle
 }, {
   dataField: 'team',
   text: 'Team',
-  style: () => {
-    return {backgroundColor: '#c8e6c9'}
-  }
+  headerStyle: headStyle
 }, {
   dataField: 'bye',
   text: 'Bye',
   sort: true,
+  headerStyle: headStyle
 }, {
   dataField: 'FP',
   text: 'FP',
-  sort: true
+  sort: true,
+  headerStyle: headStyle
 }, {
   dataField: 'ES',
   text: 'ESPN',
-  sort: true
+  sort: true,
+  headerStyle: headStyle
 }, {
   dataField: 'FC',
   text: 'FC',
-  sort: true
+  sort: true,
+  headerStyle: headStyle
 }, {
   dataField: 'AVG',
   text: 'AVG',
-  sort: true
+  sort: true,
+  headerStyle: headStyle
 }, {
   dataField: 'STD',
   text: 'STD',
-  sort: true
+  sort: true,
+  headerStyle: headStyle
 }
 ];
 

@@ -4,7 +4,7 @@ import CardList from './CardList';
 import SearchBox from './SearchBox';
 import RankingsList from './rankingsList';
 import RankHeader from './RankHeader';
-import { qbRanks, wrRanks, rbRanks, quarterbacks, columns } from './Data';
+import { rowStyle, qbRanks, wrRanks, rbRanks, quarterbacks, columns } from './Data';
 import BootstrapTable from 'react-bootstrap-table-next';
 
 
@@ -41,10 +41,8 @@ class App extends Component {
         { route === 'ranking1' 
           ? <div className='tc'>
               <h1>test</h1>
-              <BootstrapTable keyField='id' data={ qbRanks } columns={ columns } />
+              <BootstrapTable className="check" keyField='id' rowStyle={rowStyle} data={ qbRanks } columns={ columns } />
               <h1>test2</h1>
-              <BootstrapTable keyField='id' data={ rbRanks } columns={ columns } />
-              <BootstrapTable keyField='id' data={ wrRanks } columns={ columns } />
             </div>
           : (
               <div className='tc'>
@@ -59,6 +57,8 @@ class App extends Component {
 
 export default App;
 
+              // <BootstrapTable keyField='id' data={ rbRanks } columns={ columns } />
+              // <BootstrapTable keyField='id' data={ wrRanks } columns={ columns } />
 
 
               // <RankHeader name='Player'/>

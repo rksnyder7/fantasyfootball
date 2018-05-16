@@ -3,7 +3,6 @@ import React from 'react';
 const Homepage = ({ onItemClick }) => {
 	return (
 		<div>
-			hompeppppaagee
 			<p onClick={()=>onItemClick('qbRankNormal')}>Quarterbacks</p>
 			<p onClick={()=>onItemClick('rbRankNormal')}>Running Backs</p>
 			<p onClick={()=>onItemClick('wrRankNormal')}>Wide Receivers</p>

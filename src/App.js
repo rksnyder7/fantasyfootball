@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
 // import CardList from './CardList';
 // import SearchBox from './SearchBox';
 // import RankingsList from './rankingsList';
 // import RankHeader from './RankHeader';
 import Homepage from './Homepage.js';
+import { NavbarHeader, Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
 import { defaultSorted, rowStyle, deRanks, teRanks, qbRanks, wrRanks, rbRanks, colPlayers, colDefense } from './Data';
 import BootstrapTable from 'react-bootstrap-table-next';
 
 
-// make homepage; links to other pages and routing ability
 // add links to other pages
 // add background pic
 // make header
@@ -37,7 +38,6 @@ class App extends Component {
   }
 
   render() {
-
     // let columns2 = columns.slice(2,8)
     // columns2.unshift(columns.slice(0,1)[0])
 
@@ -46,9 +46,32 @@ class App extends Component {
 
     return (
 
-      <div className='tc'>
+      <div>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+        <Navbar>
+          <Navbar.Header>
+              <Navbar.Brand>
+                <a href="#home">React-Bootstrap</a>
+              </Navbar.Brand>
+          </Navbar.Header>
+          <Nav>
+            <NavItem eventKey={1} href="#">
+              Link
+            </NavItem>
+            <NavItem eventKey={2} href="#">
+              Link
+            </NavItem>
+            <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+              <MenuItem eventKey={3.1}>Action</MenuItem>
+              <MenuItem eventKey={3.2}>Another action</MenuItem>
+              <MenuItem eventKey={3.3}>Something else here</MenuItem>
+              <MenuItem divider />
+              <MenuItem eventKey={3.4}>Separated link</MenuItem>
+            </NavDropdown>
+          </Nav>
+        </Navbar>;
         <h2>HEADER HOLD</h2>
-        <p onClick={()=>this.onItemClick('homepage')}>Home</p>
+        <p onClick={()=>this.onItemClick('homepage')}>HomePage</p>
 
       {(() => {
         switch (route) {

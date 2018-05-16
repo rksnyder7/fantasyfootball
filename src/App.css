@@ -1,14 +1,56 @@
+
+
+body {
+	padding-top: 150px;
+  	background: linear-gradient(to bottom right, #205E67, #B6D6DA);
+  	min-height: 100vh;
+  	font-family: 'Josefin Sans', sans-serif;
+}
+
+#root {
+	min-height: 100vh;
+}
+
+nav {
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 1.3em;
+	padding-top: 7px;
+}
+
+h1.tc {
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 3.7em;
+	padding-bottom: 27px;
+}
+
+span.navbar-brand {
+	font-size: 1.4em;
+}
+
+.col-sm-6 p {
+	line-height: 2;
+	letter-spacing: 1.2px;
+	font-size: 1.75em;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+
+.rankh2 {
+	letter-spacing: 1.9px;
+	font-size: 3.7em;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.react-bootstrap-table {
+	padding-left: 7%;
+	padding-right: 7%;
+	padding-bottom: 100px;
+}
+
 .dib {
 	display: inline-block;
 }
 
-.table {
-	padding-left: 7%;
-	padding-right: 7%;
-	width: 100%;
-	line-height: 1.45;
-	text-align: left;
-}
 
 .table thead {
 	line-height: 1.7;
@@ -16,9 +58,5 @@
 }
 
 .table td {
-	padding-left: 7px;
-}
-
-.table th.sortable {
 	padding-left: 7px;
 }

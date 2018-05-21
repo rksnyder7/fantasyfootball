@@ -3,7 +3,8 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import { defaultSorted, rowStyle } from './Data';
 
 
-const TablePage = ({ name, dataSet, col }) => {
+
+const TableRankings = ({ name, dataSet, col }) => {
 	return (
 		<div>
 			<h1 className='tc'>{name} Rankings</h1>
@@ -13,4 +14,4 @@ const TablePage = ({ name, dataSet, col }) => {
 	)
 }
 
-export default TablePage;
+export default TableRankings;

@@ -6,13 +6,19 @@ import './App.css';
 // import RankHeader from './RankHeader';
 import Homepage from './Homepage';
 import NavbarFunc from './Navbar';
-import TablePage from './TablePage';
-import { deRanks, teRanks, qbRanks, wrRanks, rbRanks, colPlayers, colDefense } from './Data';
+import TableRankings from './TableRankings';
+import GuideRankings from './GuideRankings';
+import { deRanks, teRanks, qbRanks, wrRanks, rbRanks, colPlayers, colDefense, colNew } from './Data';
 
 
 // add ability to click on player name and bring to espn page
 
-// update other rankings to have "-" instead of N/A
+
+// add dropdown to draft guide pages where you select one of the ranking sources
+// then that selection goes to the first of the list using followed by the other two/three/four sources
+// then the avg of the other collective sources is shown and the next column is the differential between this avg and selected sources
+
+
 // for analytical rankings
 // add averages of others to the original database so all data is 
 // then send input to the data.js file and return according to an if statement which determines order of columns array
@@ -24,7 +30,7 @@ class App extends Component {
     this.state = {
       // quarterbacks: quarterbacks,
       // searchfield: '',
-      route: 'homepage'
+      route: 'homepage',
     }
   }
 
@@ -44,15 +50,19 @@ class App extends Component {
 
         <NavbarFunc onItemClick={this.onItemClick}/>
 
-
       {(() => {
         switch (route) {
           case 'homepage': return <Homepage onItemClick={this.onItemClick}/>
-          case 'qbRankNormal': return <TablePage name='Quarterback' dataSet={qbRanks} col={colPlayers}/>
-          case 'rbRankNormal': return <TablePage name='Running Back' dataSet={rbRanks} col={colPlayers}/>
-          case 'wrRankNormal': return <TablePage name='Wide Receiver' dataSet={wrRanks} col={colPlayers}/>
-          case 'teRankNormal': return <TablePage name='Tight End' dataSet={teRanks} col={colPlayers}/>
-          case 'deRankNormal': return <TablePage name='Defense' dataSet={deRanks} col={colDefense}/>
+          case 'qbRankNormal': return <TableRankings name='Quarterback'  dataSet={qbRanks} col={colPlayers}/>
+          case 'rbRankNormal': return <TableRankings name='Running Back'  dataSet={rbRanks} col={colPlayers}/>
+          case 'wrRankNormal': return <TableRankings name='Wide Receiver' dataSet={wrRanks} col={colPlayers}/>
+          case 'teRankNormal': return <TableRankings name='Tight End' dataSet={teRanks} col={colPlayers}/>
+          case 'deRankNormal': return <TableRankings name='Defense' dataSet={deRanks} col={colDefense}/>
+          case 'qbRankGuide': return <GuideRankings name='Quarterback' dataSet={qbRanks} col={colPlayers}/>
+          case 'rbRankGuide': return <GuideRankings name='Running Back' dataSet={rbRanks} col={colPlayers}/>
+          case 'wrRankGuide': return <GuideRankings name='Wide Receiver' dataSet={wrRanks} col={colPlayers}/>
+          case 'teRankGuide': return <GuideRankings name='Tight End' dataSet={teRanks} col={colPlayers}/>
+          case 'deRankGuide': return <GuideRankings name='Defense' dataSet={deRanks} col={colDefense}/>
           default: return <h1>homepage</h1>
         }
       })()}

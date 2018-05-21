@@ -23,6 +23,12 @@ h1.tc {
 	padding-bottom: 27px;
 }
 
+
+.btn-toolbar {
+	padding-left: 7%;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
 span.navbar-brand {
 	font-size: 1.4em;
 }

@@ -16,11 +16,11 @@ const Homepage = ({ onItemClick }) => {
 				<div className='col-sm-6'>	
 					<h2 className='rankh2'>Draft Guide</h2>
 					<br/>
-					<p onClick={()=>onItemClick('qbRankNormal')}>Quarterbacks</p>
-					<p onClick={()=>onItemClick('rbRankNormal')}>Running Backs</p>
-					<p onClick={()=>onItemClick('wrRankNormal')}>Wide Receivers</p>
-					<p onClick={()=>onItemClick('teRankNormal')}>Tight Ends</p>
-					<p onClick={()=>onItemClick('deRankNormal')}>Defenses</p>
+					<p onClick={()=>onItemClick('qbRankGuide')}>Quarterbacks</p>
+					<p onClick={()=>onItemClick('rbRankGuide')}>Running Backs</p>
+					<p onClick={()=>onItemClick('wrRankGuide')}>Wide Receivers</p>
+					<p onClick={()=>onItemClick('teRankGuide')}>Tight Ends</p>
+					<p onClick={()=>onItemClick('deRankGuide')}>Defenses</p>
 				</div>
 			</div>
 		</div>

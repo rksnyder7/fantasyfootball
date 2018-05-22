@@ -14,8 +14,9 @@ import { deRanks, teRanks, qbRanks, wrRanks, rbRanks, colPlayers, colDefense, co
 // add ability to click on player name and bring to espn page
 
 
-// add dropdown to draft guide pages where you select one of the ranking sources
-// then that selection goes to the first of the list using followed by the other two/three/four sources
+// XXX add dropdown to draft guide pages where you select one of the ranking sources
+// XXX then that selection goes to the first of the list using followed by the other two/three/four sources
+// set up another javascript file that will take the input of the selected data soruce then it will provide the other average and difference values, then export that dataset to the rankings page
 // then the avg of the other collective sources is shown and the next column is the differential between this avg and selected sources
 
 
@@ -58,7 +59,7 @@ class App extends Component {
           case 'wrRankNormal': return <TableRankings name='Wide Receiver' dataSet={wrRanks} col={colPlayers}/>
           case 'teRankNormal': return <TableRankings name='Tight End' dataSet={teRanks} col={colPlayers}/>
           case 'deRankNormal': return <TableRankings name='Defense' dataSet={deRanks} col={colDefense}/>
-          case 'qbRankGuide': return <GuideRankings name='Quarterback' dataSet={qbRanks} col={colPlayers}/>
+          case 'qbRankGuide': return <GuideRankings name='Quarterback' dataSet={qbRanks}/>
           case 'rbRankGuide': return <GuideRankings name='Running Back' dataSet={rbRanks} col={colPlayers}/>
           case 'wrRankGuide': return <GuideRankings name='Wide Receiver' dataSet={wrRanks} col={colPlayers}/>
           case 'teRankGuide': return <GuideRankings name='Tight End' dataSet={teRanks} col={colPlayers}/>

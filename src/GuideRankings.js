@@ -15,27 +15,27 @@ class GuideRankings extends Component {
 	}
 
 	onSourceClick = (event) => {
-    	this.setState({source: event})
-  	}
+    	let colGuide = []
+    	if (event==='FP') {
+  			console.log("FFFPPP");
+  			colGuide = colNew.slice(0,3)
+  			colGuide.push(colNew.slice(4,5)[0])
+  			colGuide = colGuide.concat(colNew.slice(6,8))
+  			// colGuide.push(colNew.slice(5,6)[0])
 
-
-  	move = (start, end) => {
-  		colNew.splice(end,0, colNew.splice(start, 1)[0]);
-  	}
-
-  	updateCol = () => {
-  		if (this.state.source=='FP') {
-  			
-  		} else if (this.state.source=='ESPN') {
-  			this.move(0,3);
-  		} else if (this.state.source=='FC') {
-  			this.move(0,4);
+  			this.setState({col: colGuide})
+  		} else if (event==='ESPN') {
+  			console.log("ESPN");
+  			this.setState({col: colNew})
+  		} else if (event==='FC') {
+  			console.log("FC");
   		} else {
-  			
+  			// this.setState({col: colNew})
+  			console.log("wooooooo")
   		}
-  		console.log(colNew)
-  		console.log(this.state.source)
   	}
+
+
 
 
 	render() {
@@ -44,7 +44,7 @@ class GuideRankings extends Component {
 
 		return (
 			<div>
-				{this.updateCol()}
+
 				<h1 className='tc'>{this.props.name} Rankings</h1>
 				  <ButtonToolbar>
 				    <DropdownButton className="buttonGuide"
@@ -57,11 +57,10 @@ class GuideRankings extends Component {
 				    </DropdownButton>
 				  </ButtonToolbar>
 				<br/>
-				<BootstrapTable defaultSorted={defaultSorted} keyField='id' rowStyle={rowStyle} data={ this.props.dataSet } columns={ this.state.col } />
+				<BootstrapTable  keyField='key'  defaultSorted={defaultSorted} rowStyle={rowStyle} data={ this.props.dataSet } columns={ this.state.col } />
 			</div>	
 		);
 	}
-
 
 }
 
@@ -92,3 +91,19 @@ export default GuideRankings;
 // 		</div>
 // 	)
 // }
+
+
+  	// updateCol = () => {
+  	// 	if (this.state.source==='FP') {
+  			
+  	// 	} else if (this.state.source==='ESPN') {
+  			
+  	// 	} else if (this.state.source==='FC') {
+  			
+  	// 	} else {
+  	// 		this.setState({col: colNew})
+  	// 		console.log("wooooooo")
+  	// 		console.log(colNew)
+  	// 	}
+  
+  	// }

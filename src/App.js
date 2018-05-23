@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-// import CardList from './CardList';
-// import SearchBox from './SearchBox';
-// import RankingsList from './rankingsList';
-// import RankHeader from './RankHeader';
 import Homepage from './Homepage';
 import NavbarFunc from './Navbar';
 import TableRankings from './TableRankings';
@@ -11,11 +7,7 @@ import GuideRankings from './GuideRankings';
 import { deRanks, teRanks, qbRanks, wrRanks, rbRanks, colPlayers, colDefense, colNew } from './Data';
 
 
-// add ability to click on player name and bring to espn page
 
-
-// XXX add dropdown to draft guide pages where you select one of the ranking sources
-// XXX then that selection goes to the first of the list using followed by the other two/three/four sources
 // set up another javascript file that will take the input of the selected data soruce then it will provide the other average and difference values, then export that dataset to the rankings page
 // then the avg of the other collective sources is shown and the next column is the differential between this avg and selected sources
 

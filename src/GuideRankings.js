@@ -37,7 +37,6 @@ class GuideRankings extends Component {
 
 
 
-
 	render() {
 
 		const { source } = this.state;
@@ -64,46 +63,6 @@ class GuideRankings extends Component {
 
 }
 
-// const GuideRankings = ({ onSourceClick, name, dataSet, col }) => {
-// 	return (
-// 	)
-// }
 
 export default GuideRankings;
 
-
-// const GuideRankings = ({ onSourceClick, name, dataSet, col }) => {
-// 	return (
-// 		<div>
-// 			<h1 className='tc'>{name} Rankings</h1>
-// 			  <ButtonToolbar>
-// 			    <DropdownButton className="buttonGuide"
-// 			      bsSize="large"
-// 			      title="Draft website"
-// 			      id="dropdown-size-large">
-// 			      <MenuItem onClick={()=>onSourceClick('123')} eventKey="1">FP</MenuItem>
-// 			      <MenuItem onClick={()=>onSourceClick('123Normal')} eventKey="2">ESPN</MenuItem>
-// 			      <MenuItem onClick={()=>onSourceClick('qbRankNormal')} eventKey="3">FC</MenuItem>
-// 			    </DropdownButton>
-// 			  </ButtonToolbar>
-// 			<br/>
-// 			<BootstrapTable defaultSorted={defaultSorted} keyField='id' rowStyle={rowStyle} data={ dataSet } columns={ col } />
-// 		</div>
-// 	)
-// }
-
-
-  	// updateCol = () => {
-  	// 	if (this.state.source==='FP') {
-  			
-  	// 	} else if (this.state.source==='ESPN') {
-  			
-  	// 	} else if (this.state.source==='FC') {
-  			
-  	// 	} else {
-  	// 		this.setState({col: colNew})
-  	// 		console.log("wooooooo")
-  	// 		console.log(colNew)
-  	// 	}
-  
-  	// }

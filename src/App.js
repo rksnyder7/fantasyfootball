@@ -7,16 +7,6 @@ import GuideRankings from './GuideRankings';
 import { deRanks, teRanks, qbRanks, wrRanks, rbRanks, colPlayers, colDefense, colNew } from './Data';
 
 
-
-// set up another javascript file that will take the input of the selected data soruce then it will provide the other average and difference values, then export that dataset to the rankings page
-// then the avg of the other collective sources is shown and the next column is the differential between this avg and selected sources
-
-
-// for analytical rankings
-// add averages of others to the original database so all data is 
-// then send input to the data.js file and return according to an if statement which determines order of columns array
-// make a function in data.js that will created needed averages and std seperate from other data, just have same name
-
 class App extends Component {
   constructor() {
     super()

@@ -9,7 +9,7 @@ const TableRankings = ({ name, dataSet, col }) => {
 		<div>
 			<h1 className='tc'>{name} Rankings</h1>
 			<br/>
-			<BootstrapTable defaultSorted={defaultSorted} keyField='id' rowStyle={rowStyle} data={ dataSet } columns={ col } />
+			<BootstrapTable defaultSorted={defaultSorted} keyField='key' rowStyle={rowStyle} data={ dataSet } columns={ col } />
 		</div>
 	)
 }

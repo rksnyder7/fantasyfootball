@@ -60,9 +60,13 @@ span.navbar-brand {
 
 .table thead {
 	line-height: 1.7;
-	font-size: 20px;
+	font-size: calc(14px + .6vw);
+	font-family: 'Josefin Sans';
+	color: black;
 }
 
 .table td {
 	padding-left: 7px;
+	font-size: calc(10px + .6vw);
+	font-family: 'Josefin Sans';
 }

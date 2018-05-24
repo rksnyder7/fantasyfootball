@@ -103,8 +103,8 @@ export const colPlayers = [
 }
 ];
 
-export let colNew = colPlayers
-
+export let colNew = colPlayers.slice(0,9)
+colNew.push(colPlayers.slice(10,11)[0])
 export let colDefense = colPlayers.slice(2,8)
 colDefense.unshift(colPlayers.slice(0,1)[0])
 

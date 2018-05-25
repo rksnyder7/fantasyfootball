@@ -23,6 +23,15 @@ h1.tc {
 	padding-bottom: 27px;
 }
 
+#dropdown-size-large {
+	font-family: 'Josefin Sans';
+	font-weight: 700;
+}
+
+ul.dropdown-menu {
+	font-family: 'Josefin Sans';
+	font-size: 17px;
+}
 
 .btn-toolbar {
 	padding-left: 7%;

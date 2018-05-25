@@ -7,6 +7,7 @@ const Homepage = ({ onItemClick }) => {
 				<div className='col-sm-6'>
 					<h2 className='rankh2'>Rankings</h2>			
 					<br/>
+					<p onClick={()=>onItemClick('alRankNormal')}>All</p>
 					<p onClick={()=>onItemClick('qbRankNormal')}>Quarterbacks</p>
 					<p onClick={()=>onItemClick('rbRankNormal')}>Running Backs</p>
 					<p onClick={()=>onItemClick('wrRankNormal')}>Wide Receivers</p>
@@ -16,6 +17,7 @@ const Homepage = ({ onItemClick }) => {
 				<div className='col-sm-6'>	
 					<h2 className='rankh2'>Draft Guide</h2>
 					<br/>
+					<p onClick={()=>onItemClick('alRankGuide')}>All</p>
 					<p onClick={()=>onItemClick('qbRankGuide')}>Quarterbacks</p>
 					<p onClick={()=>onItemClick('rbRankGuide')}>Running Backs</p>
 					<p onClick={()=>onItemClick('wrRankGuide')}>Wide Receivers</p>

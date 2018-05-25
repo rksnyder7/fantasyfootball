@@ -17,6 +17,7 @@ const NavbarFunc = ({ onItemClick }) => {
 	          		Home
 	          	</NavItem>
 	            <NavDropdown eventKey={3} title="Rankings" id="basic-nav-dropdown">
+	              <MenuItem onClick={()=>onItemClick('alRankNormal')} eventKey={3.1}>All</MenuItem>
 	              <MenuItem onClick={()=>onItemClick('qbRankNormal')} eventKey={3.1}>Quarterbacks</MenuItem>
 	              <MenuItem onClick={()=>onItemClick('rbRankNormal')} eventKey={3.2}>Running Backs</MenuItem>
 	              <MenuItem onClick={()=>onItemClick('wrRankNormal')} eventKey={3.3}>Wide Receivers</MenuItem>
@@ -24,6 +25,7 @@ const NavbarFunc = ({ onItemClick }) => {
 	              <MenuItem onClick={()=>onItemClick('deRankNormal')} eventKey={3.4}>Defenses</MenuItem>
 	            </NavDropdown>
 	           	<NavDropdown eventKey={3} title="Draft" id="basic-nav-dropdown">
+	              <MenuItem onClick={()=>onItemClick('alRankGuide')} eventKey={3.1}>All</MenuItem>
 	              <MenuItem onClick={()=>onItemClick('qbRankGuide')} eventKey={3.1}>Quarterbacks</MenuItem>
 	              <MenuItem onClick={()=>onItemClick('rbRankGuide')} eventKey={3.2}>Running Backs</MenuItem>
 	              <MenuItem onClick={()=>onItemClick('wrRankGuide')} eventKey={3.3}>Wide Receivers</MenuItem>
@@ -39,9 +41,3 @@ const NavbarFunc = ({ onItemClick }) => {
 
 export default NavbarFunc;
 
-
-
-
-	            // <NavItem eventKey={1} href="#">
-	            //   Link
-	            // </NavItem>

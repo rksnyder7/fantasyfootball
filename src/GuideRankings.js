@@ -3,7 +3,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import { defaultSorted, rowStyle } from './Data';
 import { DropdownButton, ButtonToolbar, MenuItem } from 'react-bootstrap';
 import { colNew, colPlayers } from './Data';
-
+// right now positions fill in all rankings no "-" for empty values, should leave the blanks blanks so make 999s "-"
 
 class GuideRankings extends Component {
 	constructor(props) {
@@ -16,11 +16,14 @@ class GuideRankings extends Component {
 		}
 	}
 
-// COL GUIDE BELOW ALLOWS COPY OF COLNEW WITHOUT CHANGING COLNEW, SO COLNEW IS THE RESET TO GO BACK TO NORMAL 
-// THEN EVERYTIME SELECT A DRAFTWEBSITE COLGUIDE IS SET AND THEN THE CHANGES ARE APPLIED IN EVERY IF STATEMENT
-// TO FINISH SET UP EACH IF STATEMENT TO ARANGE SOUCRES IN PROPER ORDER, ADD DIF AND REMOVE STD
+	componentWillReceiveProps = () => {
+		console.log("woooooooooo")
+		this.setState({ranks: this.props.dataSet})
+		console.log(nextProps.errors)
+		console.log(this.props.dataSet)
+		console.log(this.state.ranks)
+	}
 
-// THEN SETUP SELECTEDMETRICS TO BE CALLED AT BOTTOM OF ONSOURCECLICK FUNCTION?
 	onSourceClick = (event) => {
 		let check = []
     	let colGuide = colPlayers.map(u => Object.assign({}, u, { approved: true }));
@@ -61,11 +64,10 @@ class GuideRankings extends Component {
 	  		let std = 0.00;
 	  		let stdArr = [];
 	  		for(let x = 0; x < sources.length; x++) {
-	  			try{
+	  			if (!(dataGuide[i][sources[x]]==='-')){
 		  			total = total + dataGuide[i][sources[x]];
 		  			count = count + 1;
 		  			stdArr.push(dataGuide[i][sources[x]]);
-		  		}catch(err){
 		  		}
 		  	}
 		  	let avg = parseFloat(total)/count;
@@ -79,12 +81,16 @@ class GuideRankings extends Component {
 	  		dataGuide[i]['DIF'] = dataGuide[i][source] - dataGuide[i]['AVG'] 
   		}
   		this.setState({ranks: dataGuide})
+
   	}
+  	// how to get componentDidUpdate to not crash or loop infinetly 
+	// google function, on reload?something like that, component updates?
+	// this.setState({this.state.ranks: this.props.dataSet})
+  	// componentDidUpdate() {
+  	// 	this.setState({ranks: this.props.dataSet})
+  	// }
 
 	render() {
-
-		const { source } = this.state;
-
 		return (
 			<div>
 				<h1 className='tc'>{this.props.name} Rankings</h1>
@@ -104,6 +110,8 @@ class GuideRankings extends Component {
 				  </ButtonToolbar>
 				<br/>
 				<BootstrapTable  keyField='key'  defaultSorted={defaultSorted} rowStyle={rowStyle} data={ this.state.ranks } columns={ this.state.col } />
+				{console.log(this.state.ranks)}
+				{console.log(this.props.dataSet)}
 			</div>	
 		);
 	}

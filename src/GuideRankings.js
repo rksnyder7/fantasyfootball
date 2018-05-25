@@ -9,22 +9,25 @@ class GuideRankings extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			source: '',
-			hold: 'check',
 			col: colNew,
 			ranks: this.props.dataSet
 		}
 	}
 
-	componentWillReceiveProps = () => {
-		console.log("woooooooooo")
-		this.setState({ranks: this.props.dataSet})
-		console.log(nextProps.errors)
-		console.log(this.props.dataSet)
-		console.log(this.state.ranks)
-	}
 
-	onSourceClick = (event) => {
+	componentWillReceiveProps = (nextProps) => {
+		console.log("it worked inside");
+		this.setState({ranks: nextProps['dataSet']})
+		this.forceUpdate()
+	}
+  	// how to get componentDidUpdate to not crash or loop infinetly 
+	// google function, on reload?something like that, component updates?
+	// this.setState({this.state.ranks: this.props.dataSet})
+  	// componentDidUpdate() {
+  	// 	this.setState({ranks: this.props.dataSet})
+  	// }
+
+  	onSourceClick = (event) => {
 		let check = []
     	let colGuide = colPlayers.map(u => Object.assign({}, u, { approved: true }));
     	colGuide.splice(10,11)
@@ -53,7 +56,7 @@ class GuideRankings extends Component {
   		this.setState({col: colGuide})
 
   	}
-
+// call selectedMetrics function separetly and the onSourceClick function on separate page
   	selectedMetrics = (source) => {
   		let dataGuide = this.props.dataSet.map(u => Object.assign({}, u, { approved: true }));
   		let sources = ['YAH', 'CBS', 'ESP', 'FOX', 'NFL'];
@@ -81,18 +84,15 @@ class GuideRankings extends Component {
 	  		dataGuide[i]['DIF'] = dataGuide[i][source] - dataGuide[i]['AVG'] 
   		}
   		this.setState({ranks: dataGuide})
-
   	}
-  	// how to get componentDidUpdate to not crash or loop infinetly 
-	// google function, on reload?something like that, component updates?
-	// this.setState({this.state.ranks: this.props.dataSet})
-  	// componentDidUpdate() {
-  	// 	this.setState({ranks: this.props.dataSet})
-  	// }
+
+
 
 	render() {
 		return (
 			<div>
+				{console.log(this.state.ranks)}
+				{console.log(this.props.dataSet)}
 				<h1 className='tc'>{this.props.name} Rankings</h1>
 				  <ButtonToolbar>
 				    <DropdownButton className="buttonGuide"
@@ -110,12 +110,9 @@ class GuideRankings extends Component {
 				  </ButtonToolbar>
 				<br/>
 				<BootstrapTable  keyField='key'  defaultSorted={defaultSorted} rowStyle={rowStyle} data={ this.state.ranks } columns={ this.state.col } />
-				{console.log(this.state.ranks)}
-				{console.log(this.props.dataSet)}
 			</div>	
 		);
 	}
-
 }
 
 

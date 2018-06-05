@@ -30,7 +30,7 @@ class App extends Component {
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"/>
 
         <NavbarFunc onItemClick={this.onItemClick}/>
-        {console.log(route)}
+        
       {(() => {
         switch (route) {
           case 'homepage': return <Homepage onItemClick={this.onItemClick}/>

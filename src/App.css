@@ -32,10 +32,21 @@ ul.dropdown-menu {
 	font-family: 'Josefin Sans';
 	font-size: 17px;
 }
-
+/*
 .btn-toolbar {
-	padding-left: 7%;
 	font-family: 'Josefin Sans', sans-serif;
+}*/
+
+p.guideInstructions {
+	border: 2px solid black;
+	
+	padding: 10px 10px 10px 10px;
+}
+
+div.row {
+	padding-left: 7%;
+	padding-right: 7%;
+	font-family: 'Josefin Sans', sans-serif;	
 }
 
 span.navbar-brand {

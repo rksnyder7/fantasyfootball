@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import { defaultSorted} from './Data';
-import { DropdownButton, ButtonToolbar, MenuItem } from 'react-bootstrap';
+import { DropdownButton, ButtonToolbar, MenuItem, Col, Row, Grid } from 'react-bootstrap';
 import { colNew, colPlayers } from './Data';
 // right now positions fill in all rankings no "-" for empty values, should leave the blanks blanks so make 999s "-"
 // format draft page: highlights selected draft website, clarify differnce column(what it means) and avg(avg of four others), highlight rows with large difference(undervalued overvalued)
 // provide brief explanation of functionality on top
 // add rank to leftmost column(1,2,3)
 
-
-// make top of tables static
+// REMOVE RANK COLUMN FROM GUIDE RANKINGS WHEN YOU CLICK A DRAFT SITEc
+// make top of tables static 
 // ppr and normal
 // click on player name goes to espn page??
 
@@ -31,7 +31,9 @@ class GuideRankings extends Component {
   	onSourceClick = (event) => {
 		let check = []
     	let colGuide = colPlayers.map(u => Object.assign({}, u, { approved: true }));
-    	colGuide.splice(10,11)
+    	colGuide.splice(11,1)
+    	colGuide.shift()
+    	console.log(colGuide)
     	if (event==='RESET') {
   			colGuide = colNew
   			this.setState({ranks: this.props.dataSet})
@@ -131,20 +133,32 @@ class GuideRankings extends Component {
 		return (
 			<div>
 				<h1 className='tc'>{this.props.name} Rankings</h1>
-				  <ButtonToolbar>
-				    <DropdownButton className="buttonGuide"
-				      bsSize="large"
-				      title="Draft website"
-				      id="dropdown-size-large">
-				      <MenuItem onClick={()=>this.onSourceClick('Yahoo')} eventKey="1">YAHOO</MenuItem>
-				      <MenuItem onClick={()=>this.onSourceClick('CBS')} eventKey="2">CBS</MenuItem>
-				      <MenuItem onClick={()=>this.onSourceClick('ESPN')} eventKey="3">ESPN</MenuItem>
-				      <MenuItem onClick={()=>this.onSourceClick('FOX')} eventKey="3">FOX</MenuItem>
-				      <MenuItem onClick={()=>this.onSourceClick('NFL')} eventKey="3">NFL</MenuItem>
-				      <MenuItem divider/>
-				      <MenuItem onClick={()=>this.onSourceClick('RESET')} eventKey="3">Reset</MenuItem>
-				    </DropdownButton>
-				  </ButtonToolbar>
+					<div className="row">
+					  <div className='col-md-4'>
+						  <ButtonToolbar>
+						    <DropdownButton className="buttonGuide"
+						      bsSize="large"
+						      title="Draft website"
+						      id="dropdown-size-large">
+						      <MenuItem onClick={()=>this.onSourceClick('Yahoo')} eventKey="1">YAHOO</MenuItem>
+						      <MenuItem onClick={()=>this.onSourceClick('CBS')} eventKey="2">CBS</MenuItem>
+						      <MenuItem onClick={()=>this.onSourceClick('ESPN')} eventKey="3">ESPN</MenuItem>
+						      <MenuItem onClick={()=>this.onSourceClick('FOX')} eventKey="3">FOX</MenuItem>
+						      <MenuItem onClick={()=>this.onSourceClick('NFL')} eventKey="3">NFL</MenuItem>
+						      <MenuItem divider/>
+						      <MenuItem onClick={()=>this.onSourceClick('RESET')} eventKey="3">Reset</MenuItem>
+						    </DropdownButton>
+						  </ButtonToolbar>
+					  </div>	
+					  // Make below new page, based on the onSourceClick change state value to update content below
+					  <div className='col-md-8'>
+						  <p className='guideInstructions'>
+						  	Select website you are drafting from on drop down bar to left
+						  	<br/>
+						  	Table will compare draft site rankings to average rankings of other sites, highlighting undervalued players to be targeted in draft and overvalued players to be avoided
+						  </p>
+					  </div>
+					</div>
 				<br/>
 				<BootstrapTable keyField='key' defaultSorted={defaultSorted} rowStyle={this.rowStyle} data={ this.state.ranks } columns={ this.state.col } />
 			</div>	

@@ -14,7 +14,7 @@ const NavbarFunc = ({ onItemClick }) => {
 	          </Navbar.Header>
 	          <Nav>
 	          	<NavItem onClick={()=>onItemClick('homepage')}>
-	          		Home
+	          		<span>Home</span>
 	          	</NavItem>
 	            <NavDropdown eventKey={3} title="Rankings" id="basic-nav-dropdown">
 	              <MenuItem onClick={()=>onItemClick('alRankNormal')} eventKey={3.1}>All</MenuItem>

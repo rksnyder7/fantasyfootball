@@ -1,8 +1,8 @@
 
 
 body {
-	padding-top: 150px;
-  	background: linear-gradient(to bottom right, #205E67, #B6D6DA);
+	padding-top: 120px;
+  	background: linear-gradient(to bottom right, #0D3D56, #0D3D56);
   	min-height: 100vh;
   	font-family: 'Josefin Sans', sans-serif;
 }
@@ -11,42 +11,65 @@ body {
 	min-height: 100vh;
 }
 
+
 nav {
 	font-family: 'Josefin Sans', sans-serif;
 	font-size: 1.3em;
 	padding-top: 7px;
 }
 
+div.keyTable {
+	padding-top: 2%;
+}
+
 h1.tc {
 	font-family: 'Josefin Sans', sans-serif;
+	color: white;
 	font-size: 3.7em;
 	padding-bottom: 27px;
 }
 
+
 #dropdown-size-large {
 	font-family: 'Josefin Sans';
 	font-weight: 700;
+	margin-top: 25px;
 }
 
 ul.dropdown-menu {
 	font-family: 'Josefin Sans';
 	font-size: 17px;
 }
-/*
-.btn-toolbar {
-	font-family: 'Josefin Sans', sans-serif;
-}*/
+
+
+div.color {
+	border: 1px solid black;
+	height: 1.5em;
+}
+
+#tableInstructions {
+	padding-left: 20px;
+	margin-bottom: 0px;
+}
 
 p.guideInstructions {
 	border: 2px solid black;
-	
 	padding: 10px 10px 10px 10px;
+	background-color: #5E8091;
+	font-size: 14px;
 }
 
 div.row {
 	padding-left: 7%;
 	padding-right: 7%;
 	font-family: 'Josefin Sans', sans-serif;	
+	margin-right: 0px;
+	margin-left: 0px;
+}
+
+div.insideRow {
+	padding-right:0px;
+	padding-left: 0px;
 }
 
 span.navbar-brand {
@@ -60,6 +83,9 @@ span.navbar-brand {
 	font-family: 'Josefin Sans', sans-serif;
 }
 
+.textColor {
+	color: white;
+}
 
 .rankh2 {
 	letter-spacing: 1.9px;

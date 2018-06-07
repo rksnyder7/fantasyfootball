@@ -1,24 +1,19 @@
 import React, { Component } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import { defaultSorted} from './Data';
-import { DropdownButton, ButtonToolbar, MenuItem, Col, Row, Grid } from 'react-bootstrap';
+import { DropdownButton, ButtonToolbar, MenuItem } from 'react-bootstrap';
 import { colNew, colPlayers } from './Data';
-// right now positions fill in all rankings no "-" for empty values, should leave the blanks blanks so make 999s "-"
-// format draft page: highlights selected draft website, clarify differnce column(what it means) and avg(avg of four others), highlight rows with large difference(undervalued overvalued)
-// provide brief explanation of functionality on top
-// add rank to leftmost column(1,2,3)
+import GuideInstructions from './GuideInstructions';
 
-// REMOVE RANK COLUMN FROM GUIDE RANKINGS WHEN YOU CLICK A DRAFT SITEc
-// make top of tables static 
-// ppr and normal
-// click on player name goes to espn page??
 
 class GuideRankings extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			col: colNew,
-			ranks: this.props.dataSet
+			ranks: this.props.dataSet,
+			guide: 'instruct',
+			source: ''
 		}
 	}
 
@@ -26,6 +21,8 @@ class GuideRankings extends Component {
 	componentWillReceiveProps = (nextProps) => {
 		this.setState({ranks: nextProps['dataSet']})
 		this.setState({col: colNew})
+		this.setState({guide: 'instruct'})
+		this.setState({source: ''})
 	}
 
   	onSourceClick = (event) => {
@@ -33,13 +30,15 @@ class GuideRankings extends Component {
     	let colGuide = colPlayers.map(u => Object.assign({}, u, { approved: true }));
     	colGuide.splice(11,1)
     	colGuide.shift()
-    	console.log(colGuide)
+    	this.setState({source: event})
     	if (event==='RESET') {
   			colGuide = colNew
   			this.setState({ranks: this.props.dataSet})
+  			this.setState({guide: 'instruct'})
   		} else {
  			if (event==='Yahoo') {
  				this.selectedMetrics('YAH')
+ 				this.setState({guide: 'key'})
  			} else {
 		 			if (event==='CBS') {
 		  				check = colGuide.splice(4,1);
@@ -55,12 +54,13 @@ class GuideRankings extends Component {
 		  				this.selectedMetrics('NFL');
 		  			}
   				colGuide.splice(3,0,check[0]);
+				this.setState({guide: 'key'})
 	  		}
-	  		[4,5,6,7,8].forEach(avgsource => {
-	  			colGuide[avgsource]['headerStyle'] = {backgroundColor: '#F58B4C', fontWeight: 800, width: '10%'};
-	  		});
-	  		[3,9].forEach(element => {
-	  			colGuide[element]['headerStyle'] = {backgroundColor: '#F26D21', fontWeight: 800, width: '10%'};
+	  		// [4,5,6,7,8].forEach(avgsource => {
+	  		// 	colGuide[avgsource]['headerStyle'] = {backgroundColor: '#F58B4C', fontWeight: 800, width: '10%'};
+	  		// });
+	  		[3,8,9].forEach(element => {
+	  			colGuide[element]['headerStyle'] = {backgroundColor: '#5E8091', fontWeight: 400, width: '10%', color: 'white'};
 	  		});
 	  		colGuide[8]['text'] = 'AVG w/o ' + event;
   		}
@@ -132,9 +132,9 @@ class GuideRankings extends Component {
 	render() {
 		return (
 			<div>
-				<h1 className='tc'>{this.props.name} Rankings</h1>
-					<div className="row">
-					  <div className='col-md-4'>
+				<div className='row'>
+					<div className='col-md-2'>
+					  <div className='col-md-2'>
 						  <ButtonToolbar>
 						    <DropdownButton className="buttonGuide"
 						      bsSize="large"
@@ -150,15 +150,13 @@ class GuideRankings extends Component {
 						    </DropdownButton>
 						  </ButtonToolbar>
 					  </div>	
-					  // Make below new page, based on the onSourceClick change state value to update content below
-					  <div className='col-md-8'>
-						  <p className='guideInstructions'>
-						  	Select website you are drafting from on drop down bar to left
-						  	<br/>
-						  	Table will compare draft site rankings to average rankings of other sites, highlighting undervalued players to be targeted in draft and overvalued players to be avoided
-						  </p>
-					  </div>
 					</div>
+					<div className='col-md-8'>
+						<h1 className='tc'>{this.props.name} Rankings</h1>
+					</div>
+					<div className='col-md-2'></div>
+				</div>
+				<GuideInstructions guide={this.state.guide} source={this.state.source}/>
 				<br/>
 				<BootstrapTable keyField='key' defaultSorted={defaultSorted} rowStyle={this.rowStyle} data={ this.state.ranks } columns={ this.state.col } />
 			</div>	

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Homepage = ({ onItemClick }) => {
 	return (
-		<div className='tc container'>
+		<div className='tc container textColor'>
 			<div className='row'>
 				<div className='col-sm-6'>
 					<h2 className='rankh2'>Rankings</h2>			

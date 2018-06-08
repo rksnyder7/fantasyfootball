@@ -4,7 +4,7 @@ const Homepage = ({ onItemClick }) => {
 	return (
 		<div className='tc container textColor'>
 			<div className='row'>
-				<div className='col-sm-6'>
+				<div className='col-sm-6 col-xs-6'>
 					<h2 className='rankh2'>Rankings</h2>			
 					<br/>
 					<p onClick={()=>onItemClick('alRankNormal')}>All</p>
@@ -14,7 +14,7 @@ const Homepage = ({ onItemClick }) => {
 					<p onClick={()=>onItemClick('teRankNormal')}>Tight Ends</p>
 					<p onClick={()=>onItemClick('deRankNormal')}>Defenses</p>
 				</div>
-				<div className='col-sm-6'>	
+				<div className='col-sm-6 col-xs-6'>	
 					<h2 className='rankh2'>Draft Guide</h2>
 					<br/>
 					<p onClick={()=>onItemClick('alRankGuide')}>All</p>

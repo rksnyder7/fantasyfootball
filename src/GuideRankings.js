@@ -26,43 +26,29 @@ class GuideRankings extends Component {
 	}
 
   	onSourceClick = (event) => {
+  		const sourceCol = {'YAH': ['Yahoo', 4], 'CBS': ['CBS', 4], 'ESP': ['ESPN', 5], 'FOX': ['FOX', 6], 'NFL': ['NFL', 7],}
 		let check = []
     	let colGuide = colPlayers.map(u => Object.assign({}, u, { approved: true }));
     	colGuide.splice(11,1)
     	colGuide.shift()
-    	this.setState({source: event})
     	if (event==='RESET') {
   			colGuide = colNew
   			this.setState({ranks: this.props.dataSet})
   			this.setState({guide: 'instruct'})
   		} else {
- 			if (event==='Yahoo') {
+ 			if (event==='YAH') {
  				this.selectedMetrics('YAH')
- 				this.setState({guide: 'key'})
  			} else {
-		 			if (event==='CBS') {
-		  				check = colGuide.splice(4,1);
-		  				this.selectedMetrics('CBS');
-		  			} else if (event==='ESPN') {
-		  				check = colGuide.splice(5,1);
-		  				this.selectedMetrics('ESP');
-		  			} else if (event==='FOX') {
-		  				check = colGuide.splice(6,1);
-		  				this.selectedMetrics('FOX');
-		  			} else if (event==='NFL') {
-		  				check = colGuide.splice(7,1);
-		  				this.selectedMetrics('NFL');
-		  			}
+ 				check = colGuide.splice(sourceCol[event][1],1);
   				colGuide.splice(3,0,check[0]);
-				this.setState({guide: 'key'})
+ 				this.selectedMetrics(event)
 	  		}
-	  		// [4,5,6,7,8].forEach(avgsource => {
-	  		// 	colGuide[avgsource]['headerStyle'] = {backgroundColor: '#F58B4C', fontWeight: 800, width: '10%'};
-	  		// });
 	  		[3,8,9].forEach(element => {
 	  			colGuide[element]['headerStyle'] = {backgroundColor: '#5E8091', fontWeight: 400, width: '10%', color: 'white'};
 	  		});
-	  		colGuide[8]['text'] = 'AVG w/o ' + event;
+	  		colGuide[8]['text'] = 'AVG w/o ' + sourceCol[event][0];
+			this.setState({guide: 'key'})
+	    	this.setState({source: sourceCol[event][0]})
   		}
   		this.setState({col: colGuide})
   	}
@@ -133,28 +119,26 @@ class GuideRankings extends Component {
 		return (
 			<div>
 				<div className='row'>
-					<div className='col-md-2'>
-					  <div className='col-md-2'>
+					<div className='col-md-2 col-sm-2 col-xs-2'>
 						  <ButtonToolbar>
 						    <DropdownButton className="buttonGuide"
 						      bsSize="large"
 						      title="Draft website"
 						      id="dropdown-size-large">
-						      <MenuItem onClick={()=>this.onSourceClick('Yahoo')} eventKey="1">YAHOO</MenuItem>
+						      <MenuItem onClick={()=>this.onSourceClick('YAH')} eventKey="1">YAHOO</MenuItem>
 						      <MenuItem onClick={()=>this.onSourceClick('CBS')} eventKey="2">CBS</MenuItem>
-						      <MenuItem onClick={()=>this.onSourceClick('ESPN')} eventKey="3">ESPN</MenuItem>
+						      <MenuItem onClick={()=>this.onSourceClick('ESP')} eventKey="3">ESPN</MenuItem>
 						      <MenuItem onClick={()=>this.onSourceClick('FOX')} eventKey="3">FOX</MenuItem>
 						      <MenuItem onClick={()=>this.onSourceClick('NFL')} eventKey="3">NFL</MenuItem>
 						      <MenuItem divider/>
 						      <MenuItem onClick={()=>this.onSourceClick('RESET')} eventKey="3">Reset</MenuItem>
 						    </DropdownButton>
 						  </ButtonToolbar>
-					  </div>	
 					</div>
-					<div className='col-md-8'>
+					<div className='col-md-8 col-sm-10 col-xs-10'>
 						<h1 className='tc'>{this.props.name} Rankings</h1>
 					</div>
-					<div className='col-md-2'></div>
+					<div className='col-md-2 col-sm-0 col-xs-0'></div>
 				</div>
 				<GuideInstructions guide={this.state.guide} source={this.state.source}/>
 				<br/>

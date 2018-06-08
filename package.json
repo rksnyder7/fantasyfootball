@@ -2,8 +2,10 @@
   "name": "fantasyfootball",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://rksnyder7.github.io/",
   "dependencies": {
     "bootstrap3": "^3.3.5",
+    "gh-pages": "^1.2.0",
     "react": "^16.3.2",
     "react-bootstrap": "^0.32.1",
     "react-bootstrap-table-next": "^0.1.11",
@@ -15,6 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   }
 }

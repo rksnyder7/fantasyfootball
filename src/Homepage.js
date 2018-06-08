@@ -6,7 +6,7 @@ const Homepage = ({ onItemClick }) => {
 			<div className='row'>
 				<div className='col-sm-6 col-xs-6'>
 					<h2 className='rankh2'>Rankings</h2>	
-					<h1>WOOOOOOOOOOOOOOOOOOOOo<h1>		
+					<h1>WOOOOOOOOOOOOOOOOOOOOo</h1>		
 					<br/>
 					<p onClick={()=>onItemClick('alRankNormal')}>All</p>
 					<p onClick={()=>onItemClick('qbRankNormal')}>Quarterbacks</p>

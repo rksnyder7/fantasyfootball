@@ -28,7 +28,7 @@ class App extends Component {
 
       <div>
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"/>
-
+        <h1 style={{color:'white'}}>testsetsetsetsetsetet</h1>
         <NavbarFunc onItemClick={this.onItemClick}/>
         
       {(() => {

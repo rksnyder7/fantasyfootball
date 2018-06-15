@@ -5,7 +5,7 @@ import NavbarFunc from './Navbar';
 import TableRankings from './TableRankings';
 import GuideRankings from './GuideRankings';
 import { alRanks, deRanks, teRanks, qbRanks, wrRanks, rbRanks, colDefense, colNew } from './Data';
-
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
 class App extends Component {
   constructor() {
